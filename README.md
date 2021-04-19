@@ -1,3 +1,6 @@
+# Project forked from Project_DigitalCash
+https://github.com/koushik-kumar/Project_DigitalCash
+
 # Project Setup
 
 Python version  - 3.8.0
