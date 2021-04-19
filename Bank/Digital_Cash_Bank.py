@@ -56,14 +56,14 @@ s.bind(bank_addr)
 t = 0
 
 amount = []
-money_oder_no = 5
+money_oder_no = 1 #5
 for i in range (0,money_oder_no):
     amount.append(i)
 
 #load RSA private key
 pvt_key = RSA.importKey(open('bank_pvt_key.pem').read())
-#load RSA public key
-pub_key = RSA.importKey(open('bank_pub_key.pem').read())
+# #load RSA public key
+# pub_key = RSA.importKey(open('bank_pub_key.pem').read())
 
 # define our clear function
 def clear(): 
@@ -261,7 +261,9 @@ def Verify_Money_Order(MOS, data_d):
                 i += 1
   
         if (result):
-            msg = "5 Money Orders credited for the value " + amount
+            # msg = "5 Money Orders credited for the value " + amount
+            msg = "Money Order credited for the value " + amount
+
             write_csv = [unique_id, id1, id2, id3]
             with open(filename, 'a') as csvfile: 
                 csvwriter = csv.writer(csvfile)

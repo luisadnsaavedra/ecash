@@ -62,7 +62,7 @@ UMO       = []
 UMO_S     = []
 umo_read  = 0
 
-money_order_no  = 5 
+money_order_no  = 1 #5 
 # Number of secret pair per check
 secret_pairs_no = 3
 
@@ -190,13 +190,13 @@ while 1:
     print("###-------------------------------###")
     print("Welcome to CMPE-209 Credit Union Bank")
 
-    mode = input("To create a new money order, enter '1';\nTo view previously created money orders, press '2';\nTo quit press '3'")
+    mode = input("To create a new money order, enter '1';\nTo use previously created money orders at the merchant, press '2';\nTo quit press '3'")
     
     if mode == '1':
-        customer_id     = input("Enter the 5- digit Account No: ")
-        customer_name   = input("Enter your Name(max 10 chars): ")
+        customer_id     = input("Enter the Account Identifier (max 3 chars, e.g. \"car\", \"001\", \"bus\", or \"999\", etc.): ")
+        customer_name   = input("Enter the Account Name (max 10 chars, e.g. \"1234567890\", \"Luis A. S.\"): ")
 
-        amount = input("Enter the amount to create MO for (less than $99999): ")
+        amount = input("Enter the amount to create MO for (less than $99999, tipically $0/1): ")
 
         msg_uni_id, msg_amount, Identity = Create_New_Money_Order(customer_id, customer_name, money_order_no, amount)
         m = []
