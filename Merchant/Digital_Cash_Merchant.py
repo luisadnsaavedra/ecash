@@ -82,7 +82,7 @@ while 1:
     data, addr = S.recvfrom (BUFFER_SIZE)
     Message = data.decode()
     print (Message)
-    if (Message[0] == '5'):
+    if (Message.startswith("Money Order credited")):
         msg = "Payment Received"
     else:
         msg = "Payment Rejected by Bank"

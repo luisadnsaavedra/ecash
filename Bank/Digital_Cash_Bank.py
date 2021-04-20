@@ -56,7 +56,7 @@ s.bind(bank_addr)
 t = 0
 
 amount = []
-money_oder_no = 1 #5
+money_oder_no = 5
 for i in range (0,money_oder_no):
     amount.append(i)
 
@@ -166,6 +166,17 @@ def Sign_Money_order(amount):
     MO_sign       = base64.encodebytes(MO_s)
     return MO_sign
 
+# Obtain the ID of the double-spender in string form 
+def get_identity_str(identity):
+    ID_text = ""
+    for i in identity:
+        ID_text += str(i)
+    i = int(ID_text, 2)
+    return i.to_bytes((i.bit_length() + 7) // 8, 'big').decode(errors='ignore')
+    # Alternative, import binascii
+    # return binascii.unhexlify('%x' % int(ID_text, 2)).decode(errors='replace')
+
+
 # This modules verifies the money order given by Merchant for processing
 # It verifies banks signature. 
 # If signature ok checks unique_id with all unique_ids processed.
@@ -273,7 +284,10 @@ def Verify_Money_Order(MOS, data_d):
             if (cheater == "Merchant"):
                 msg = "Merchant Duplicated Money Order. Request Rejected!"
             elif (cheater == "Customer"):
-                msg = "Customer with ID" + str(identity) + "Duplicated the Money Order. Request Rejected!"
+                # msg = "Customer with ID" + str(identity) + "Duplicated the Money Order. Request Rejected!"
+                # Get the ID from the identity
+                id_str = get_identity_str(identity)
+                msg = "Customer with ID \'" + str(id_str) + "\' Duplicated the Money Order. Request Rejected!"
 
     print (msg)
     return msg

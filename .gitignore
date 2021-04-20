@@ -1,3 +1,6 @@
 venv/
 *.csv
+Customer/SIGNED_MO.txt
 *.txt
+Bank/Bank.py
+

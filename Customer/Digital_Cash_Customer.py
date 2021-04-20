@@ -62,7 +62,7 @@ UMO       = []
 UMO_S     = []
 umo_read  = 0
 
-money_order_no  = 1 #5 
+money_order_no  = 5 
 # Number of secret pair per check
 secret_pairs_no = 3
 
@@ -214,7 +214,7 @@ while 1:
         for i in range(0,money_order_no):
             s.sendto(m[i],bank_addr)
 
-        #recieve signed MO from bank
+        #receive signed MO from bank
         data, addr = s.recvfrom(BUFFER_SIZE)
         Message = data.decode()
         if (Message == "Signing Money order received from customer"):
