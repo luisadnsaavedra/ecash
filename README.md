@@ -10,11 +10,21 @@ Python version  - 3.8.0
 * BitVector
 * pycryptodome==3.4.3
 
+### Recommended use of a python Virtual Enviroment
+Commands:
 
+* python3 -m venv venv
+(Or python3.8 -m venv venv)
+* source venv/bin/activate
 
+* pip install BitVector
+* pip install pip pycryptodome
+
+### Run in case new keys are needed, and distribute the necessary keys to the Bank and user:
+* python Customer/keygen.py 
 
 ### Step 1:
-Open three terminals or terminal tabs
+Open three terminals or terminal tabs (and use venv if set up "source venv/bin/activate")
 
 ### Step 2:
 1. In first terminal, run Bank function
